@@ -1,0 +1,36 @@
+max_token_budget: 4096
+compression_level: 0.5
+log_level: INFO
+
+memory:
+  backend: local
+  l0_ttl_seconds: 300
+  l1_ttl_seconds: 3600
+  l2_ttl_seconds: 86400
+  l3_ttl_seconds: 604800
+  l4_ttl_seconds: 0
+
+retrieval:
+  engine: ngram
+  top_k: 5
+  min_score: 0.3
+  use_mmr: true
+  mmr_lambda: 0.5
+
+llm:
+  provider: openai
+  model: gpt-4o-mini
+  api_key: ""
+  max_tokens: 1024
+  temperature: 0.0
+
+security:
+  encrypt_memory: false
+  encryption_key: ""
+  pii_detection: true
+  audit_log: true
+  memory_expiration_days: 90
+
+plugins:
+  enabled: true
+  scan_paths: []

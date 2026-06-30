@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  entropyos:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./entropyos.yaml:/app/entropyos.yaml:ro
+      - entropy_data:/app/data
+    environment:
+      - ENTROPY_LOG_LEVEL=INFO
+      - ENTROPY_MEMORY_BACKEND=file
+    restart: unless-stopped
+
+volumes:
+  entropy_data:
